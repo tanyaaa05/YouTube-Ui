@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Youtube UI Clone</title>
+
+         <!-- adding the tailwind css -->
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style> 
+            /* ! tailwindcss v3.4.4 | MIT License | https://tailwindcss.com */
+            *,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]{display:none}*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }.absolute{position:absolute}.relative{position:relative}.bottom-1{bottom:0.25rem}.right-1{right:0.25rem}.right-2{right:0.5rem}.top-1{top:0.25rem}.mx-1{margin-left:0.25rem;margin-right:0.25rem}.mx-4{margin-left:1rem;margin-right:1rem}.ml-5{margin-left:1.25rem}.mt-1{margin-top:0.25rem}.line-clamp-2{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}.flex{display:flex}.hidden{display:none}.h-1{height:0.25rem}.h-12{height:3rem}.h-4{height:1rem}.h-5{height:1.25rem}.h-6{height:1.5rem}.h-\[10vh\]{height:10vh}.h-\[90vh\]{height:90vh}.h-full{height:100%}.h-screen{height:100vh}.w-1{width:0.25rem}.w-10{width:2.5rem}.w-12{width:3rem}.w-24{width:6rem}.w-4{width:1rem}.w-5{width:1.25rem}.w-6{width:1.5rem}.w-8{width:2rem}.w-\[350px\]{width:350px}.w-\[530px\]{width:530px}.w-full{width:100%}.cursor-pointer{cursor:pointer}.flex-col{flex-direction:column}.flex-wrap{flex-wrap:wrap}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-10{gap:2.5rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-5{gap:1.25rem}.gap-x-5{column-gap:1.25rem}.gap-y-10{row-gap:2.5rem}.self-start{align-self:flex-start}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.overflow-y-scroll{overflow-y:scroll}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.rounded-br-3xl{border-bottom-right-radius:1.5rem}.rounded-tr-3xl{border-top-right-radius:1.5rem}.border{border-width:1px}.border-l{border-left-width:1px}.border-gray-300{--tw-border-opacity:1;border-color:rgb(209 213 219 / var(--tw-border-opacity))}.bg-\[\#F0F0F0\]{--tw-bg-opacity:1;background-color:rgb(240 240 240 / var(--tw-bg-opacity))}.bg-\[\#FFFFFF\]{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity))}.bg-black{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity))}.bg-gray-500{--tw-bg-opacity:1;background-color:rgb(107 114 128 / var(--tw-bg-opacity))}.bg-red-600{--tw-bg-opacity:1;background-color:rgb(220 38 38 / var(--tw-bg-opacity))}.p-2{padding:0.5rem}.p-\[10px\]{padding:10px}.px-1{padding-left:0.25rem;padding-right:0.25rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-5{padding-left:1.25rem;padding-right:1.25rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-\[1px\]{padding-top:1px;padding-bottom:1px}.pb-5{padding-bottom:1.25rem}.pt-4{padding-top:1rem}.text-\[0\.65rem\]{font-size:0.65rem}.text-\[0\.9rem\]{font-size:0.9rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity))}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.outline-none{outline:2px solid transparent;outline-offset:2px}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.hover\:bg-\[\#F0F0F0\]:hover{--tw-bg-opacity:1;background-color:rgb(240 240 240 / var(--tw-bg-opacity))}.hover\:bg-\[\#e5e5e5\]:hover{--tw-bg-opacity:1;background-color:rgb(229 229 229 / var(--tw-bg-opacity))}.hover\:bg-gray-100:hover{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity))}.hover\:bg-gray-200:hover{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity))}.group:hover .group-hover\:block{display:block}
+        </style>
+    </head>
+
+  <body class="bg-[#FFFFFF] h-screen">
+    <!-- for header navigation -->
+    <header class="flex items-center justify-between mx-4 py-1 h-[10vh]">
+      <!-- for menu and youtube logo -->
+      <div class="flex items-center gap-5">
+        <!-- for menu icon -->
+        <div class="w-10 rounded-full hover:bg-[#F0F0F0] transition-all duration-300 ease-in-out p-2 cursor-pointer">
+          <svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="
+              pointer-events: none;
+              display: block;
+              width: 100%;
+              height: 100%;
+              ">
+            <path d="M21 6H3V5h18v1zm0 5H3v1h18v-1zm0 6H3v1h18v-1z"></path>
+          </svg>
+        </div>
+
+        <!-- for youtube logo -->
+        <img class="w-24" src="./assets/youtubeLogo.png" alt="logo">
+      </div>
+
+      <!-- for search bar section -->
+      <div class="flex items-center gap-4">
+        <!-- for search bar -->
+        <div class="flex items-center rounded-3xl border border-gray-300">
+          <input type="text" placeholder="Search" class="w-[530px] outline-none ml-5">
+          <button class="py-2 px-5 bg-gray-50 hover:bg-gray-100 border-l border-gray-300 rounded-tr-3xl rounded-br-3xl">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- mic button -->
+        <button class="bg-gray-100 hover:bg-gray-200 rounded-full p-[10px]">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- for right section of header -->
+      <div class="flex items-center gap-5">
+        <!-- for create video -->
+        <button class="hover:bg-gray-200 rounded-full p-[10px]">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"></path>
+          </svg>
+        </button>
+
+        <!-- for notification bell -->
+        <button class="relative hover:bg-gray-200 rounded-full p-[10px]">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"></path>
+          </svg>
+          <p class="absolute top-1 right-2 bg-red-600 text-white flex items-center justify-center h-4 w-5 text-xs rounded-full">
+            9+
+          </p>
+        </button>
+
+        <!-- for profile -->
+        <div class="cursor-pointer">
+          <img class="rounded-full w-[32px] h-[35px]" src="ProfilePicture.jpg" alt="profile image">
+        </div>
+      </div>
+    </header>
+
+    <!-- for main content -->
+    <main class="flex items-start gap-10 h-[90vh] overflow-hidden">
+      <!-- left sidebar -->
+      <ul class="flex flex-col mx-1">
+        <!-- for home icon -->
+        <li class="flex flex-col items-center justify-center gap-1 w-full py-4 rounded-lg cursor-pointer hover:bg-[#F0F0F0] transition-all duration-300 ease-in-out">
+          <div class="w-6">
+            <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="
+                pointer-events: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+              ">
+              <g>
+                <path d="M4 21V10.08l8-6.96 8 6.96V21h-6v-6h-4v6H4z"></path>
+              </g>
+            </svg>
+          </div>
+          <p class="text-[0.65rem] font-semibold">Home</p>
+        </li>
+
+        <!-- for shorts icon -->
+        <li class="flex flex-col items-center justify-center gap-1 w-full py-4 rounded-xl cursor-pointer hover:bg-[#F0F0F0] transition-all duration-300 ease-in-out">
+          <div class="w-6">
+            <svg height="24" viewBox="0 0 24 24" width="24" focusable="false" style="
+                pointer-events: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+              ">
+              <path d="M10 14.65v-5.3L15 12l-5 2.65zm7.77-4.33-1.2-.5L18 9.06c1.84-.96 2.53-3.23 1.56-5.06s-3.24-2.53-5.07-1.56L6 6.94c-1.29.68-2.07 2.04-2 3.49.07 1.42.93 2.67 2.22 3.25.03.01 1.2.5 1.2.5L6 14.93c-1.83.97-2.53 3.24-1.56 5.07.97 1.83 3.24 2.53 5.07 1.56l8.5-4.5c1.29-.68 2.06-2.04 1.99-3.49-.07-1.42-.94-2.68-2.23-3.25zm-.23 5.86-8.5 4.5c-1.34.71-3.01.2-3.72-1.14-.71-1.34-.2-3.01 1.14-3.72l2.04-1.08v-1.21l-.69-.28-1.11-.46c-.99-.41-1.65-1.35-1.7-2.41-.05-1.06.52-2.06 1.46-2.56l8.5-4.5c1.34-.71 3.01-.2 3.72 1.14.71 1.34.2 3.01-1.14 3.72L15.5 9.26v1.21l1.8.74c.99.41 1.65 1.35 1.7 2.41.05 1.06-.52 2.06-1.46 2.56z"></path>
+            </svg>
+          </div>
+          <p class="text-[0.65rem] font-semibold">Shorts</p>
+        </li>
+
+        <!-- for subscription -->
+        <li class="flex flex-col items-center justify-center gap-1 w-full py-4 rounded-xl cursor-pointer hover:bg-[#F0F0F0] transition-all duration-300 ease-in-out">
+          <div class="w-6">
+            <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="
+                pointer-events: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+              ">
+              <path d="M10 18v-6l5 3-5 3zm7-15H7v1h10V3zm3 3H4v1h16V6zm2 3H2v12h20V9zM3 10h18v10H3V10z"></path>
+            </svg>
+          </div>
+          <p class="text-[0.65rem] font-semibold">Subscriptions</p>
+        </li>
+
+        <!-- for library -->
+        <li class="flex flex-col items-center justify-center gap-1 w-full py-4 rounded-xl cursor-pointer hover:bg-[#F0F0F0] transition-all duration-300 ease-in-out">
+          <div class="w-6">
+            <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" style="
+                pointer-events: none;
+                display: block;
+                width: 100%;
+                height: 100%;
+                ">
+              <path d="m11 7 6 3.5-6 3.5V7zm7 13H4V6H3v15h15v-1zm3-2H6V3h15v15zM7 17h13V4H7v13z"></path>
+            </svg>
+          </div>
+          <p class="text-[0.65rem] font-semibold">Library</p>
+        </li>
+      </ul>
+
+      <!-- for videos content -->
+      <section class="flex flex-col gap-5 pt-4 w-full h-full">
+        <!-- for videos content category options -->
+        <ul class="flex items-center gap-2.5 overflow-x-hidden text-[0.9rem] font-medium">
+          <li class="bg-black text-white px-3 py-1 rounded-lg">All</li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Music
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Web development
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Lectures
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Study skills
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Algorithm
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Live
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Self-confidence
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Thoughts
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Computer programming
+          </li>
+          <li class="bg-[#F0F0F0] px-3 py-1 rounded-lg cursor-pointer hover:bg-[#e5e5e5] transition-all duration-300 ease-in-out">
+            Skills
+          </li>
+        </ul>
+
+        <!-- for video section -->
+        <section class="h-full w-full overflow-y-scroll flex items-center gap-x-5 gap-y-10 flex-wrap pb-5 self-start">
+          
+          <!-- card for video 01-->
+          <div class="w-[350px] cursor-pointer group">
+
+            <!-- for video thumbnail -->
+            <div class="relative">
+              <iframe class="rounded-xl" width="100%" height="200"  src="https://www.youtube.com/embed/B5ZG3060ImM?si=wV4mLmGsHo-tnYcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+                10:00
+              </p>
+            </div>
+
+            <!-- for card header details -->
+            <div class="flex items-center gap-3 mt-1">
+              <!-- channel logo -->
+              <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+                <img class= "rounded-full w-[32px] h-[35px]" src="assets/PW(logo).jpg" alt="channel logo">
+              </div>
+
+              <!-- for card details right side -->
+              <div class="w-full">
+                <!-- for video heading -->
+                <div class="w-full flex items-center justify-between">
+                  <h2 class="text-lg font-semibold line-clamp-2">
+                    Ultimate 4 Months DSA Roadmap 2024 🚀 Complete Step By Step Roadmap To Crack Placements & Internships
+                  </h2>
+
+                  <!-- button for more options -->
+                  <button class="hidden group-hover:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <h4 class="text-gray-600 text-sm font-semibold"> College Wallah </h4>
+                <!-- for card description -->
+                <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                  54K views  
+                  <!-- div for dot -->
+                  <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                  4 months ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card for video 02-->
+          <div class="w-[350px] cursor-pointer group">
+
+            <!-- for video thumbnail -->
+            <div class="relative">
+              <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube-nocookie.com/embed/AKH6ZNSnWOA?si=zBY9Rmk9hFdfKZeM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+              </iframe>
+              <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+                3:30
+              </p>
+            </div>
+
+            <!-- for card header details -->
+            <div class="flex items-center gap-3 mt-1">
+              <!-- channel logo -->
+              <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+                <img class= "rounded-full w-[32px] h-[35px]" src="assets/MixSingh(logo).jpg" alt="channel logo">
+              </div>
+
+              <!-- for card details right side -->
+              <div class="w-full">
+                <!-- for video heading -->
+                <div class="w-full flex items-center justify-between">
+                  <h2 class="text-lg font-semibold line-clamp-2">
+                    SUNIYAN SUNIYAN (Official Video) Juss x MixSingh
+                  </h2>
+
+                  <!-- button for more options -->
+                  <button class="hidden group-hover:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <h4 class="text-gray-600 text-sm font-semibold">
+                  MixSingh
+                </h4>
+                <!-- for card description -->
+                <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                  46M views
+                  <!-- div for dot -->
+                  <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                   3 months ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card for video 03-->
+          <div class="w-[350px] cursor-pointer group">
+
+            <!-- for video thumbnail -->
+            <div class="relative">
+              <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube.com/embed/V2EfL1j4KYE?si=Ouzk-x4FrhbCo4rL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+                3:47
+              </p>
+            </div>
+
+            <!-- for card header details -->
+            <div class="flex items-center gap-3 mt-1">
+              <!-- channel logo -->
+              <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+                <img class= "rounded-full w-[32px] h-[35px]" src="assets/Mateusz(logo).jpg" alt="channel logo">
+              </div>
+
+              <!-- for card details right side -->
+              <div class="w-full">
+                <!-- for video heading -->
+                <div class="w-full flex items-center justify-between">
+                  <h2 class="text-lg font-semibold line-clamp-2">
+                    The Greatest - Muhammad Ali Inspirational Video
+                  </h2>
+
+                  <!-- button for more options -->
+                  <button class="hidden group-hover:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <h4 class="text-gray-600 text-sm font-semibold">
+                  Mateusz M
+                </h4>
+                <!-- for card description -->
+                <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                  24M views  
+                  <!-- div for dot -->
+                  <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                  8 years ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card for video 04-->
+          <div class="w-[350px] cursor-pointer group">
+
+            <!-- for video thumbnail -->
+            <div class="relative">
+              <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube.com/embed/havARbP7Fyk?si=_mLtIZTJV8LTHPKP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+                16:15
+              </p>
+            </div>
+
+            <!-- for card header details -->
+            <div class="flex items-center gap-3 mt-1">
+              <!-- channel logo -->
+              <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+                <img class= "rounded-full w-[32px] h-[35px]" src="assets/HarshGujral(logo).jpg" alt="channel logo">
+              </div>
+
+              <!-- for card details right side -->
+              <div class="w-full">
+                <!-- for video heading -->
+                <div class="w-full flex items-center justify-between">
+                  <h2 class="text-lg font-semibold line-clamp-2">
+                    B.Tech - Stand up Comedy By Harsh Gujral
+                  </h2>
+                  <!-- button for more options -->
+                  <button class="hidden group-hover:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <h4 class="text-gray-600 text-sm font-semibold">
+                  Harsh gujral
+                </h4>
+                <!-- for card description -->
+                <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                  12M views  
+                  <!-- div for dot -->
+                  <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                  4 months ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card for video 05-->
+          <div class="w-[350px] cursor-pointer group">
+            <!-- for video thumbnail -->
+            <div class="relative">
+              <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube.com/embed/vacGRuHDtO0?si=6Wt0_z274O2vMPTU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+                14:15
+              </p>
+            </div>
+
+            <!-- for card header details -->
+            <div class="flex items-center gap-3 mt-1">
+              <!-- channel logo -->
+              <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+                <img class= "rounded-full w-[32px] h-[35px]" src="assets/EnglishSpeeches(logo).jpg" alt="channel logo">
+              </div>
+
+              <!-- for card details right side -->
+              <div class="w-full">
+                <!-- for video heading -->
+                <div class="w-full flex items-center justify-between">
+                  <h2 class="text-lg font-semibold line-clamp-2">
+                    ENGLISH SPEECH | SUDHA MURTY: Discipline and Success (English Subtitles)
+                  </h2>
+                  <!-- button for more options -->
+                  <button class="hidden group-hover:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <h4 class="text-gray-600 text-sm font-semibold">
+                  English Speeches
+                </h4>
+                <!-- for card description -->
+                <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                  1.4M views 
+                  <!-- div for dot -->
+                  <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                  5 months ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card for video 06-->
+          <div class="w-[350px] cursor-pointer group">
+            <!-- for video thumbnail -->
+            <div class="relative">
+              <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube.com/embed/E_SbwSe15y0?si=mH4A6om7IBgbdFzX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+                3:24
+              </p>
+            </div>
+
+            <!-- for card header details -->
+            <div class="flex items-center gap-3 mt-1">
+              <!-- channel logo -->
+              <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+                <img class= "rounded-full w-[32px] h-[35px]" src="assets/DreematiyaMusic.jpg" alt="channel logo">
+              </div>
+
+              <!-- for card details right side -->
+              <div class="w-full">
+                <!-- for video heading -->
+                <div class="w-full flex items-center justify-between">
+                  <h2 class="text-lg font-semibold line-clamp-2">
+                    Ve Haaniyaan - Official Video | Ravi Dubey & Sargun Mehta | Danny | Avvy Sra | Dreamiyata Music
+                  </h2>
+                  <!-- button for more options -->
+                  <button class="hidden group-hover:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                    </svg>
+                  </button>
+                </div>
+                <h4 class="text-gray-600 text-sm font-semibold">
+                  Dreamiyata Musiic
+                </h4>
+                <!-- for card description -->
+                <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                  119M views
+                  <!-- div for dot -->
+                  <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                  5 months ago
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- card for video 07-->
+        <div class="w-[350px] cursor-pointer group">
+
+          <!-- for video thumbnail -->
+          <div class="relative">
+            <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube.com/embed/AgyTHzjBS-c?si=X2ta7lQe3J9AzSAk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+              9:56
+            </p>
+          </div>
+
+          <!-- for card header details -->
+          <div class="flex items-center gap-3 mt-1">
+            <!-- channel logo -->
+            <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+              <img class= "rounded-full w-[32px] h-[35px]" src="assets/apna_Clg(logo).jpg" alt="channel logo">
+            </div>
+
+            <!-- for card details right side -->
+            <div class="w-full">
+              <!-- for video heading -->
+              <div class="w-full flex items-center justify-between">
+                <h2 class="text-lg font-semibold line-clamp-2">
+                  How much Coding to learn for Placements? Data Structure & Algorithms
+                </h2>
+
+                <!-- button for more options -->
+                <button class="hidden group-hover:block">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                  </svg>
+                </button>
+              </div>
+              <h4 class="text-gray-600 text-sm font-semibold">
+                Apna College
+              </h4>
+              <!-- for card description -->
+              <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                1.9M views
+                <!-- div for dot -->
+                <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                2 years ago
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card for video 08-->
+        <div class="w-[350px] cursor-pointer group">
+
+          <!-- for video thumbnail -->
+          <div class="relative">
+            <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube.com/embed/Gv_XBMrPvRw?si=4pqX45rJCsoX5efV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+              7:23
+            </p>
+          </div>
+
+          <!-- for card header details -->
+          <div class="flex items-center gap-3 mt-1">
+            <!-- channel logo -->
+            <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+              <img class= "rounded-full w-[32px] h-[35px]" src="assets/Sony-Music(logo).jpg" alt="channel logo">
+            </div>
+
+            <!-- for card details right side -->
+            <div class="w-full">
+              <!-- for video heading -->
+              <div class="w-full flex items-center justify-between">
+                <h2 class="text-lg font-semibold line-clamp-2">
+                  Heartless - Badshah ft. Aastha Gill | Gurickk G Maan | O.N.E. ALBUM
+                </h2>
+
+                <!-- button for more options -->
+                <button class="hidden group-hover:block">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                  </svg>
+                </button>
+              </div>
+              <h4 class="text-gray-600 text-sm font-semibold">
+                Sony Music India
+              </h4>
+              <!-- for card description -->
+              <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                321M views   
+                <!-- div for dot -->
+                <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                5 years ago
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- card for video 09-->
+        <div class="w-[350px] cursor-pointer group">
+
+          <!-- for video thumbnail -->
+          <div class="relative">
+            <iframe class="rounded-xl" width="100%" height="200" src="https://www.youtube.com/embed/HAnw168huqA?si=nBBKRoIz4SQEeGUL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p class="absolute bottom-1 right-1 px-1 py-[1px] rounded-md bg-black text-white text-xs font-semibold">
+              58:20
+            </p>
+          </div>
+
+          <!-- for card header details -->
+          <div class="flex items-center gap-3 mt-1">
+            <!-- channel logo -->
+            <div class="flex items-center justify-center w-12 h-12 rounded-full shadow-sm self-start">
+              <img class= "rounded-full w-[32px] h-[35px]" src="assets/Stanford(logo).jpg" alt="channel logo">
+            </div>
+
+            <!-- for card details right side -->
+            <div class="w-full">
+              <!-- for video heading -->
+              <div class="w-full flex items-center justify-between">
+                <h2 class="text-lg font-semibold line-clamp-2">
+                  Think Fast, Talk Smart: Communication Techniques
+                </h2>
+
+                <!-- button for more options -->
+                <button class="hidden group-hover:block">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z"></path>
+                  </svg>
+                </button>
+              </div>
+              <h4 class="text-gray-600 text-sm font-semibold">
+                Stanford Graduate School of Business
+              </h4>
+              <!-- for card description -->
+              <div class="text-gray-500 text-sm font-semibold flex items-center gap-2">
+                38M views  
+                <!-- div for dot -->
+                <div class="w-1 h-1 bg-gray-500 rounded-full"></div>
+                9 years ago
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+      </section>
+     </section>
+    </main>
+
+  </body>
+</html>
