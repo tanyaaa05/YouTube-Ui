@@ -1,6 +1,4 @@
-# YouTube-Ui
-
-🎥 YouTube Clone Project
+# 🎥 YouTube Clone Project
 
 Dive into my YouTube Clone Project! This project is a front-end recreation of YouTube, built using HTML, CSS, Tailwind CSS, and JavaScript. It aims to replicate the core design and functionality of the popular video-sharing platform.
 
